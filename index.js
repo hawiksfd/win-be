@@ -12,12 +12,13 @@ dotenv.config();
 
 const PORT = process.env.PORT || 7070;
 
-const konek = async () => {
+const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO);
-    console.log("Connected to MongoDB!");
+    const conn = await mongoose.connect(process.env.MONGO);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    throw error;
+    console.log(error);
+    process.exit(1);
   }
 };
 
@@ -69,7 +70,8 @@ app.all("*", (req, res) => {
   res.json({ "every thing": "is awesome" });
 });
 
-app.listen(PORT, () => {
-  konek();
-  console.log("Connected to Server!");
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log("listening for requests");
+  });
 });
