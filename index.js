@@ -29,7 +29,7 @@ mongoose.connection.on("disconnected", () => {
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.CLIENT,
+    origin: "https://win-gaanxo510-hawiksfd.vercel.app",
     credentials: true,
     optionSuccessStatus: 200,
   })
@@ -37,7 +37,10 @@ app.use(
 app.use(express.json());
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", process.env.CLIENT);
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://win-gaanxo510-hawiksfd.vercel.app"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
@@ -45,7 +48,10 @@ app.use(function (req, res, next) {
   next();
 }, authRoute);
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", process.env.CLIENT);
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://win-gaanxo510-hawiksfd.vercel.app"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
