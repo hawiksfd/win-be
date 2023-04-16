@@ -30,6 +30,9 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: "https://win-fe-git-master-hawiksfd.vercel.app",
+    origin: "https://win-fe-hawiksfd.vercel.app",
+    origin: "win-ep7c7cneb-hawiksfd.vercel.app",
+
     // process.env.CLIENT || "http://localhost:3000",
     credentials: true,
     optionSuccessStatus: 200,
