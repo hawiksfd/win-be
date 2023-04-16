@@ -29,7 +29,7 @@ mongoose.connection.on("disconnected", () => {
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://win-gaanxo510-hawiksfd.vercel.app/",
+    origin: "https://win-gaanxo510-hawiksfd.vercel.app",
     // process.env.CLIENT || "http://localhost:3000",
     credentials: true,
     optionSuccessStatus: 200,
@@ -40,7 +40,7 @@ app.use(express.json());
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://win-fe-git-master-hawiksfd.vercel.app/"
+    "https://win-fe-git-master-hawiksfd.vercel.app"
     //   process.env.CLIENT ||
     // "http://localhost:3000"
   );
@@ -53,7 +53,7 @@ app.use(function (req, res, next) {
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://win-fe-git-master-hawiksfd.vercel.app/"
+    "https://win-fe-git-master-hawiksfd.vercel.app"
   );
   res.header(
     "Access-Control-Allow-Headers",
