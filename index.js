@@ -10,7 +10,6 @@ const app = express();
 
 dotenv.config();
 
-//cek koneksi database
 const konek = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
@@ -23,8 +22,6 @@ const konek = async () => {
 mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
-
-//middlewares
 
 app.use(cookieParser());
 app.use(
@@ -51,7 +48,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// cek koneksi backend
 app.listen(process.env.PORT, () => {
   konek();
   console.log("Connected to Server!");
