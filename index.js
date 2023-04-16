@@ -10,6 +10,8 @@ const app = express();
 
 dotenv.config();
 
+const PORT = process.env.PORT || 7070;
+
 const konek = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
@@ -62,7 +64,12 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(process.env.PORT, () => {
+//Routes go here
+app.all("*", (req, res) => {
+  res.json({ "every thing": "is awesome" });
+});
+
+app.listen(PORT, () => {
   konek();
   console.log("Connected to Server!");
 });
