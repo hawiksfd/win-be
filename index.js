@@ -33,8 +33,22 @@ app.use(
 );
 app.use(express.json());
 
-app.use(authRoute);
-app.use(productRoute);
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", process.env.CLIENT);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+}, authRoute);
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", process.env.CLIENT);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+}, productRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
