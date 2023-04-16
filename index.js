@@ -33,8 +33,8 @@ app.use(
 );
 app.use(express.json());
 
-app.use("/api", authRoute);
-app.use("/api", productRoute);
+app.use(authRoute);
+app.use(productRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
