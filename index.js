@@ -29,7 +29,7 @@ mongoose.connection.on("disconnected", () => {
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://win-gaanxo510-hawiksfd.vercel.app",
+    origin: "https://win-fe-git-master-hawiksfd.vercel.app",
     // process.env.CLIENT || "http://localhost:3000",
     credentials: true,
     optionSuccessStatus: 200,
