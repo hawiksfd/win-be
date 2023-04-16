@@ -73,7 +73,7 @@ app.use((err, req, res, next) => {
 
 //Routes go here
 app.all("*", (req, res) => {
-  res.json({ "hello - project by: hawik" });
+  res.json({ hello: "project by: hawik" });
 });
 
 connectDB().then(() => {
